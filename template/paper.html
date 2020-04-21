@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDE</title>
+    <link rel = "stylesheet" href="./static/index.css">
+    <script src="./static/index.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class='messages' id='messages'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <li class='messages'> {{ message }} </li>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div id="wrapper">
+
+        <div id="paper">
+    
+            <!-- <div id="margin">Title: <input id="title" type="text" name="title"></div> -->
+            <textarea placeholder="Code here" id="text" name="text" rows="7" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
+            <br>
+            <input id="button" type="button" value="Run" onclick="run()">
+        </div>
+        <br>
+        <br>
+        <textarea id="output" name="output" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>
+    </div>
+</body>
+</html>

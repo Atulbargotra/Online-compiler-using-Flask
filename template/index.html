@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Code Editior</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    function run(){
+    $.ajax({
+          data : {
+             text : $('#text').val(),
+                 },
+             type : 'POST',
+             url : '/result'
+            })
+        .done(function(data) {
+          $('#output').text(data.output).show();
+      });
+      event.preventDefault();
+}
+</script>
+</head>
+<body>
+    <textarea id="text" rows="30" cols="70"></textarea>
+    <button class="submit" onclick="run()">Submit</button>
+    <p>Output</p>
+    <textarea id="output" rows="10" cols="20"></textarea>
+</body>
+</html>
